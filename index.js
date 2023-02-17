@@ -48,7 +48,7 @@ function showData() {
             index +
             ')" class="btn btn-danger">Delete</button> <button onclick="updateData(' +
             index +
-            ')" class="btn btn-primary">Edit</button></td>';
+            ')" class="btn btn-primary">Update</button></td>';
         html += "</tr>";
     });
 
@@ -88,6 +88,8 @@ function addData() {
         document.getElementById("age").value = "";
         document.getElementById("profession").value = "";
         document.getElementById("email").value = "";
+
+        showAlert("Subcriber has been added", "success");
     }
 }
 
@@ -106,8 +108,9 @@ function deleteData(index) {
     showAlert("Record has been deleted", "danger");
 }
 
+
 function updateData(index) {
-    document.getElementById("Submit").style.display = "none";
+    document.getElementById("Submit").style.display = "block";
     document.getElementById("Update").style.display = "block";
 
     var peopleList;
@@ -127,7 +130,7 @@ function updateData(index) {
         if (validateForm() == true) {
             peopleList[index].firstName = document.getElementById("firstName").value;
             peopleList[index].lastName = document.getElementById("lastName").value;
-            peopleList[index].age = document.getElementById("agee").value;
+            peopleList[index].age = document.getElementById("age").value;
             peopleList[index].profession = document.getElementById("profession").value;
             peopleList[index].email = document.getElementById("email").value;
 
@@ -141,8 +144,10 @@ function updateData(index) {
             document.getElementById("profession").value = "";
             document.getElementById("email").value = "";
 
-            document.getElementById("Submit").style.display = "none";
+            document.getElementById("Submit").style.display = "block";
             document.getElementById("Update").style.display = "none";
+          
+            showAlert("Subcriber has been edited", "success");
         }
     }
 }
